@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link, BrowserRouter } from "react-router-dom";
 import { BooksProvider } from "./context/BooksContext";
 import AddBookAuthor from "./components/AddBookAuthor";
 import Dashboard from "./components/Dashboard";
@@ -10,9 +10,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   return (
-    <>
+    <BrowserRouter>
       <BooksProvider>
-        <Router>
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -22,9 +21,8 @@ const App = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/details/:id" element={<BookDetails />} />
           </Routes>
-        </Router>
       </BooksProvider>
-    </>
+      </BrowserRouter>
   );
 };
 
